@@ -1,0 +1,26 @@
+<p>admin works!</p>
+
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Purchase date</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr *ngFor = 'let bike of bikes'>
+                <td> {{ bike.id }} </td>
+                <td> {{ bike.name }} </td>
+                <td> {{ bike.email}} </td>
+                <td> {{ bike.phone }} </td>
+                <td> {{ bike.purchaseDate }}  </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
