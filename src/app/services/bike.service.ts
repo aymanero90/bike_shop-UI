@@ -14,7 +14,7 @@ export class BikeService {
 
   constructor(private http:HttpClient) { }
 
-  getBikes () : Observable <IBike []>{
+  getBikes () : Observable <IBike[]>{
     return this.http.get <IBike[]> ('/server/app/bikes')  // return observable  /server for proxy and then followed by api directory
   }
 

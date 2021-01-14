@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { IBike } from 'src/app/interfaces/ibike';
 import { BikeService } from 'src/app/services/bike.service';
@@ -19,7 +20,7 @@ export class HomeComponent implements OnInit {
 
   validMessage : string = "" ;    // to display to the user 
 
-  constructor(private bikeService : BikeService) { }
+  constructor(private bikeService : BikeService , private router : Router) { }
 
   ngOnInit(): void {
     this.bikeForm = new FormGroup ({
@@ -41,6 +42,7 @@ export class HomeComponent implements OnInit {
       this.bikeService.createBike(this.bikeForm.value).subscribe(
         data => {
           this.bikeForm.reset();
+          this.router.navigateByUrl('/admin');
           return true;
         },
         error => {
