@@ -17,4 +17,13 @@ export class BikeService {
   getBikes () : Observable <IBike []>{
     return this.http.get <IBike[]> ('/server/app/bikes')  // return observable  /server for proxy and then followed by api directory
   }
+
+  getBike (id : number) : Observable <IBike>{
+    return this.http.get <IBike> ('/server/app/bikes/' + id);
+  }
+
+  createBike (bike) {
+    let body = JSON.stringify(bike);
+    return this.http.post('/server/app/bikes' , body, httpOptions);
+  }
 }
